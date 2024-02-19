@@ -57,8 +57,8 @@ class Toast {
 
 // Exemplo de uso:
 const toast = new Toast('msgbox');
-
-toast.exibir('erro', 'Erro!', 'Mensagem de erro.');
-toast.exibir('sucesso', 'Sucesso!', 'Mensagem de sucesso.');
-toast.exibir('atencao', 'Atenção!', 'Mensagem de atenção.');
-toast.exibir('', '', 'Mensagem em branco.');
+//Exemplos
+//toast.exibir('erro', 'Erro!', 'Mensagem de erro.');
+//toast.exibir('sucesso', 'Sucesso!', 'Mensagem de sucesso.');
+//toast.exibir('atencao', 'Atenção!', 'Mensagem de atenção.');
+//toast.exibir('', '', 'Mensagem em branco.');
