@@ -1,7 +1,8 @@
 /***
 LUMAMAX.COM.BR DIREITOS RESERVADOS (C) 2023
 ***/
-html,body,h1,h2,h3,h4,h5{font-family: "Trebuchet MS"}
+body{font-size: 15pt;}
+html,body,h1,h2,h3,h4,h5{font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
 .w3-font-bold{font-weight:bold;}
 .w3-text-overflow-ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .w3-menu-scroll{overflow-y:auto;white-space:nowrap;}

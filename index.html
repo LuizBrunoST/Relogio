@@ -11,40 +11,48 @@
 </head>
 <body class="w3-theme">
     <nav class="w3-bar w3-theme-d5">
-        <span class="w3-bar-item w3-font-bold">Relógio</span>
+        <span class="w3-bar-item w3-button tabLink" onclick="openTab(event, '#tab-relogio')"><i class="fa-solid fa-clock"></i> <span class="w3-hide-small">Relógio</span></span>
+        <span class="w3-bar-item w3-button tabLink" onclick="openTab(event, '#tab-alarme')"><i class="fa-solid fa-bell"></i> <span class="w3-hide-small">Alarme</span></span>
+        <span class="w3-bar-item w3-button tabLink" onclick="openTab(event, '#tab-timer')"><i class="fa-solid fa-stopwatch-20"></i> <span class="w3-hide-small">Timer</span></span>
+        <span class="w3-bar-item w3-button tabLink" onclick="openTab(event, '#tab-config')"><i class="fa-solid fa-gear"></i> <span class="w3-hide-small">Config</span></span>
         <div class="w3-dropdown-hover w3-right">
-            <button class="w3-button"><i class="fa-solid fa-circle-half-stroke"></i></button>
+            <button class="w3-button">Tema <i class="fa-solid fa-circle-half-stroke"></i></button>
             <div class="w3-dropdown-content w3-bar-block w3-theme-d5 w3-border" style="right:0">
-              <a href="#" onclick="localStorage.setItem('theme', 'light')" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-light"><i class="fa-regular fa-sun"></i> Claro</a>
-              <a href="#" onclick="" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-dark"><i class="fa-regular fa-moon"></i> Escuro</a>
-              <a href="#" onclick="" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-default"><i class="fa-solid fa-gear"></i> Sistema</a>
+              <a href="#" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-light"><i class="fa-regular fa-sun"></i> Claro</a>
+              <a href="#" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-dark"><i class="fa-regular fa-moon"></i> Escuro</a>
+              <a href="#" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-default"><i class="fa-solid fa-gear"></i> Sistema</a>
             </div>
         </div>
     </nav>
     <div class="w3-display-bottomleft w3-display-bottomleft w3-block w3-padding w3-margin-bottom" id="msgbox" style="z-index:5;"></div>
 
-
-    <div class="w3-display-middle w3-mobile w3-round-xlarge w3-border" style="overflow: hidden;">
-        <div class="w3-theme-d1">
-            <header class="w3-bar w3-theme-d3">
-                <span class="w3-bar-item" id="dataAtual">01/12/2022</span>
-                <div class="w3-right">
-                    <span class="w3-bar-item" id="semana">Domingo</span>
-                </div>
-            </header>
-            <main class="w3-container">
-                <div class="w3-center">
-                    <span class="w3-xxxlarge" id="hora">12:15<sup>30</sup></span>
-                </div>
-            </main>
-            <footer class="w3-bar w3-theme-d3">
-                <span class="w3-bar-item">LUMAMAX</span>
-                <div class="w3-right">
-                    <span class="w3-bar-item w3-font-bold" id="saudacao">Boa Tarde!</span>
-                </div>
-            </footer>
+    <div class="classTab" id="tab-relogio">
+        <div class="w3-display-middle w3-mobile w3-round-xlarge w3-border" style="overflow: hidden;">
+            <div class="w3-theme-d1">
+                <header class="w3-bar w3-theme-d3">
+                    <span class="w3-bar-item" id="dataAtual">01/12/2022</span>
+                    <div class="w3-right">
+                        <span class="w3-bar-item" id="semana">Domingo</span>
+                    </div>
+                </header>
+                <main class="w3-container">
+                    <div class="w3-center">
+                        <span class="w3-xxxlarge" id="hora">12:15<sup>30</sup></span>
+                    </div>
+                </main>
+                <footer class="w3-bar w3-theme-d3">
+                    <span class="w3-bar-item">LUMAMAX</span>
+                    <div class="w3-right">
+                        <span class="w3-bar-item w3-font-bold" id="saudacao">Boa Tarde!</span>
+                    </div>
+                </footer>
+            </div>
         </div>
     </div>
+    <div class="classTab w3-hide" id="tab-alarme">Alarme em breve!</div>
+    <div class="classTab w3-hide" id="tab-timer">Timer em breve!</div>
+    <div class="classTab w3-hide" id="tab-config">Config em breve!</div>
+    
 
 
 

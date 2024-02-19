@@ -1,9 +1,24 @@
+var openTab = (evt, nameTab) => {
+    
+    var i;
+    var classTab = $('.classTab');
+    for (i = 0; i < classTab.length; i++) {
+        $(classTab[i]).addClass('w3-hide');
+    }
+    var tabLinks = $('.tabLink');
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" w3-theme", "");
+    }
+    $(nameTab).removeClass('w3-hide');
+    evt.currentTarget.className += " w3-theme";
+}
+
 function saudacao() {
     var greeting;
     var time = new Date().getHours();
-    if (time < 10) {
+    if (time >= 0 && time < 12) {
         greeting = "Bom dia!";
-    } else if (time < 20) {
+    } else if (time < 18) {
         greeting = "Boa Tarde!";
     } else {
         greeting = "Boa Noite!";
@@ -60,7 +75,7 @@ $(document).ready(()=>{
 
     $('#dataAtual').html(dataAtual());
     var d = new Date();
-    var days = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sabádo"];
+    var days = ["<span class='w3-text-red'>Domingo</span>","Segunda","Terça","Quarta","Quinta","Sexta","<span class='w3-text-blue'>Sabádo</span>"];
     $('#semana').html(days[d.getDay()]);
 
     $('#btn-theme-light').click( () =>{
