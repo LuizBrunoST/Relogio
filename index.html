@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/padrao.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body class="w3-theme">
+    <nav class="w3-bar w3-theme-d5">
+        <span class="w3-bar-item w3-font-bold">Relógio</span>
+        <div class="w3-dropdown-hover w3-right">
+            <button class="w3-button"><i class="fa-solid fa-circle-half-stroke"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-theme-d5 w3-border" style="right:0">
+              <a href="#" onclick="localStorage.setItem('theme', 'light')" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-light"><i class="fa-regular fa-sun"></i> Claro</a>
+              <a href="#" onclick="" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-dark"><i class="fa-regular fa-moon"></i> Escuro</a>
+              <a href="#" onclick="" class="w3-bar-item w3-button w3-hover-theme" id="btn-theme-default"><i class="fa-solid fa-gear"></i> Sistema</a>
+            </div>
+        </div>
+    </nav>
+    <div class="w3-display-bottomleft w3-display-bottomleft w3-block w3-padding w3-margin-bottom" id="msgbox" style="z-index:5;"></div>
+
+
+    <div class="w3-display-middle w3-mobile w3-round-xlarge w3-border" style="overflow: hidden;">
+        <div class="w3-theme-d1">
+            <header class="w3-bar w3-theme-d3">
+                <span class="w3-bar-item" id="dataAtual">01/12/2022</span>
+                <div class="w3-right">
+                    <span class="w3-bar-item" id="semana">Domingo</span>
+                </div>
+            </header>
+            <main class="w3-container">
+                <div class="w3-center">
+                    <span class="w3-xxxlarge" id="hora">12:15<sup>30</sup></span>
+                </div>
+            </main>
+            <footer class="w3-bar w3-theme-d3">
+                <span class="w3-bar-item">LUMAMAX</span>
+                <div class="w3-right">
+                    <span class="w3-bar-item w3-font-bold" id="saudacao">Boa Tarde!</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+
+    <script src="js/toast.class.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
