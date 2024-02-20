@@ -24,6 +24,7 @@
             </div>
         </div>
     </nav>
+    
     <div class="w3-display-bottomleft w3-display-bottomleft w3-block w3-padding w3-margin-bottom" id="msgbox" style="z-index:5;"></div>
 
     <div class="classTab" id="tab-relogio">
@@ -49,7 +50,32 @@
             </div>
         </div>
     </div>
-    <div class="classTab w3-hide" id="tab-alarme">Alarme em breve!</div>
+
+    <div class="classTab w3-hide" id="tab-alarme">
+        <audio src="media/alarm_clock.mp3" loop id="alarm_clock"></audio>
+        <div class="w3-display-middle w3-theme-d1 w3-mobile w3-round-xlarge w3-border" style="overflow: hidden;">
+            <div class="w3-container w3-theme-d3">
+                <div class="w3-center" id="despert">Aguardando ...</div>
+            </div>
+            <main class="w3-container">
+                <div id="exibirEntrada" style="display: none;">
+                    <input class="w3-input" type="time" id="entradaAlarme" onchange="setAlarm();$('#exibirEntrada').hide()">
+                </div>
+                <div class="w3-center">
+                    <span class="w3-xxxlarge" id="mostrarAlarme">6:00</span>
+                </div>
+            </main>
+            <div class="w3-row">
+                <div class="w3-col s6">
+                    <button class="w3-block w3-button w3-hover-theme w3-theme-d5" onclick="$('#exibirEntrada').toggle()">Definir</button>
+                </div>
+                <div class="w3-col s6">
+                    <button class="w3-block w3-button w3-hover-theme w3-theme-d5" id="btnDesativarAlarme">Ativar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="classTab w3-hide" id="tab-timer">Timer em breve!</div>
     <div class="classTab w3-hide" id="tab-config">Config em breve!</div>
     

@@ -1,5 +1,4 @@
 var openTab = (evt, nameTab) => {
-    
     var i;
     var classTab = $('.classTab');
     for (i = 0; i < classTab.length; i++) {
@@ -12,6 +11,61 @@ var openTab = (evt, nameTab) => {
     $(nameTab).removeClass('w3-hide');
     evt.currentTarget.className += " w3-theme";
 }
+
+
+let alarmTimeout;
+let colors = ['yellow', 'red', 'blue']; // Lista de cores
+let colorIndex = 0;
+let flashingInterval;
+
+function setAlarm() {
+    const alarmTimeInput = $('#entradaAlarme');
+    const alarmTime = alarmTimeInput.val();
+    
+    const [hours, minutes] = alarmTime.split(':');
+    const now = new Date();
+    const alarm = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, 0, 0);
+    
+    const timeUntilAlarm = alarm - now;
+    
+    if (timeUntilAlarm > 0) {
+        $('#mostrarAlarme').html(alarmTime);
+        $('#btnDesativarAlarme').text('Desativar');
+        $('#btnDesativarAlarme').attr('onclick','disableAlarm()');
+        $('#despert').text(`Despertador definido para ${alarmTime}`);
+        toast.exibir('sucesso', 'Sucesso!', `Despertador definido para ${alarmTime}.`);
+        alarmTimeout = setTimeout(() => {
+            $('#alarm_clock').trigger('play');
+            startFlashing(); // Inicia o piscar das cores
+        }, timeUntilAlarm);
+    } else {
+        toast.exibir('erro', 'Erro!', 'Tempo inválido para o despertador.');
+        alert('Tempo inválido para o despertador');
+    }
+}
+
+function startFlashing() {
+    flashingInterval = setInterval(() => {
+        document.getElementById('despert').style.backgroundColor = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length; // Avança para a próxima cor
+    }, 500); // Alterna a cada 500ms (0.5 segundos)
+}
+
+function disableAlarm() {
+    clearTimeout(alarmTimeout);
+    $('#btnDesativarAlarme').removeAttr('onclick');
+    $('#btnDesativarAlarme').text('Ativar');
+    $('#despert').text(`Desativado..`);
+    $('#alarm_clock').trigger('pause');
+    toast.exibir('', '', 'Despertador desativado.');
+
+    clearTimeout(alarmTimeout);
+    clearInterval(flashingInterval); // Limpa o intervalo de piscar das cores
+    document.getElementById('despert').style.backgroundColor = ''; // Reseta a cor de fundo
+
+    console.log('Despertador desativado');
+}
+
 
 function saudacao() {
     var greeting;
@@ -93,6 +147,7 @@ $(document).ready(()=>{
         localStorage.setItem('msg','<script>toast.exibir(\'sucesso\', \'Sucesso!\', \'Tema alterado com sucesso.\');</script>')
         window.location.reload();
     });
+
     if (localStorage.getItem('theme') === null) {
         // Verifica se o usuário prefere o tema escuro
         var preferDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
